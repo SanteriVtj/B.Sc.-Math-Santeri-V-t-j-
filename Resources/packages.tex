@@ -1,0 +1,37 @@
+\usepackage[hidelinks]{hyperref} % Always load this: clickable links and PDF reader navigation bar
+\usepackage{lastpage} % Used to determine the total page count
+\usepackage{calc} % For layout calculations involving TeX length units (template title page)
+\usepackage{graphicx} % For embedding image files (JPEG, PNG, PDF)
+\usepackage{subcaption} % For subfigures
+\usepackage{tikz} % For drawing diagrams and other complex vector graphics
+
+% If you use the LuaLaTeX or XeLaTeX compiler, comment out the following line.
+% These compilers offer better support for Unicode, so you should use them if possible.
+\usepackage[T1]{fontenc}
+\usepackage[most]{tcolorbox}
+%\DeclareAutoCiteCommand{textcite}{\textcite}{\textcites}
+%\ExecuteBibliographyOptions{autocite=textcite}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\newtcolorbox[auto counter]{proposition}[1][]{
+  enhanced,
+  breakable,
+  fonttitle=\scshape,
+  title={Proposition \thetcbcounter},
+  #1
+}
+
+% Pass the language of the thesis as the LAST option in the list below.
+% This changes the language used for dates and words like 'Chapter' or 'Bibliography'.
+% You can remove the languages that do not appear in your work.
+\usepackage[finnish,swedish,english]{babel}
+
+\usepackage{csquotes} % This package is suggested by 'babel'
+
+% Bibliography. Change the latter command if you modify the .bib file name.
+\usepackage{biblatex}
+\addbibresource{Resources/library.bib}
+
+\usepackage{mathtools} % Extended mathematics support (this package extends amsmath)
+\usepackage{amssymb} % More mathematical symbols
+\usepackage{amsfonts} % Blackboard bold mathematics font

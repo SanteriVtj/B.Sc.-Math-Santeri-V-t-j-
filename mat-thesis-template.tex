@@ -1,0 +1,164 @@
+% University of Helsinki
+% Department of Mathematics and Statistics
+% Template for Bachelor's or Master's thesis
+%
+% This template is intended as a starting point for a thesis;
+% feel free to customize it or use your own template.
+% See the comments for hints and customization.
+%
+% Initial version: 29 August 2024 / Petri Laarne
+
+
+% Add the 'twoside, openright' options when producing a proper printed version
+\documentclass[a4paper, 11pt]{report}
+
+\input{Resources/packages}
+
+% Theorem environments
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section] % Theorems are numbered within chapter and section
+\newtheorem{lemma}[theorem]{Lemma} % Lemmas etc. follow the same numbering as theorems
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+% Some examples of custom mathematical commands
+\input{Resources/definitions}
+
+% Finnish notation for evaluating integrals
+% Instead of \int_a^b syntax you must use it as \sij{a}{b}
+% (To enable the sub-/superscript syntax would require some more complicated TeX wizardry.)
+\newcommand{\sij}[2]{\mathop{\bigg/}\nolimits_{\hspace{-0.65em}#1}^{\hspace{0.05em}#2}\hspace{-0.2em}}
+
+
+\begin{document}
+
+%
+% TITLE PAGE
+%
+\begin{titlepage}
+
+\noindent
+\begin{minipage}[b]{\textwidth-45pt}
+University of Helsinki\\
+Faculty of Science\\
+Bachelors Program in Mathematics
+% Helsingin yliopisto\\
+% Matemaattis-luonnontieteellinen tiedekunta\\
+% Helsingfors universitet\\
+% Matematisk-naturvetenskapliga fakulteten\\
+\end{minipage}
+\hfill\includegraphics[width=45pt]{HYlogo.pdf}
+
+\vspace{4pt}\hrule\vfill
+
+\begin{center}
+Bachelor's thesis\\[8pt]
+% Kandidaatintutkielma / Maisterintutkielma\\[8pt]
+% Kandidatavhandlingen / Magisteravhandlingen\\[8pt]
+
+{\huge\bfseries Title of the thesis}\\[8pt]
+
+Santeri Väätäjä
+\end{center}
+
+\vfill\hrule\vspace{4pt}
+
+\noindent
+Supervisor:\hfill Month and year of submission\\
+Petri Ola\\
+\end{titlepage}
+
+%
+% ABSTRACT
+%
+% This command starts a new page.
+% In a print version ('twoside' option passed to \documentclass), the page is on the right side
+\pagenumbering{gobble}
+\cleardoublepage
+
+\noindent\textbf{Title:} Repeat the title here\\ % Otsikko / Titel
+\textbf{Author:} Santeri Väätäjä\\ % Tekijä / Författare
+\textbf{Month and year:} Month and year of submission\\ % Aika / Datum
+\textbf{Page count:} \pageref*{LastPage}~pp.\\[1em] % Sivumäärä: XX~s. / Sidoantal: XX~s.
+% The page count is updated automatically, but it might require two compilations to be correct.
+% If you customize the backmatter, this might become incorrect - check and correct manually if needed.
+
+% If you include an abstract in a different language, wrap it in a foreignlanguage block
+\begin{foreignlanguage}{english}
+\noindent\textbf{Abstract:}\\ % Tiivistelmä / Referat
+The abstract should be about one page long.
+It also doubles as the maturity test.
+Do not use mathematical notation in the abstract,
+since it will also be displayed on the electronic thesis repository.
+
+For the publication date, put in the month and year of submission of the finished thesis.
+Also include 3~to 5~keywords that support searching for your thesis.
+They are also shown one the repository page.
+
+You can include the abstract in more than one language by copying and modifying
+this code between comment blocks.
+To get correct hyphenation for the language (and not with the rules of the main language),
+put the text in a \verb|foreignlanguage| block as shown in the code
+(just modify the language parameter to match the abstract).
+\end{foreignlanguage}
+
+
+\vfill
+
+\noindent\textbf{Keywords:} Fill in some keywords, Separated by commas % Avainsanat / Nyckelord
+
+
+
+
+%
+% TABLE OF CONTENTS
+%
+\cleardoublepage
+\tableofcontents
+
+
+%
+% MAIN TEXT STARTS HERE
+%
+
+% The \pagenumbering{arabic} command must be immediately after the first chapter title.
+% Do not repeat it for other chapters.
+\chapter{Introduction}
+\pagenumbering{arabic}
+
+\chapter{Poisson Kernel in $\RR_+^{n+1}$}
+\input{Sections/poisson-kernels}
+
+\clearpage
+\chapter{Harmonic functions in $E_+^{n+1}$}
+
+\input{Sections/Harmonic-functions-in-E}
+
+\clearpage
+\chapter{Nontangential Convergence of Harmonic Functions}
+
+
+%
+% BIBLIOGRAPHY
+%
+% The [heading=bibintoc] option adds the bibliography to table of contents
+\printbibliography[heading=bibintoc]
+
+
+
+
+%
+% APPENDICES (if necessary)
+%
+%\appendix
+
+%\chapter{Some more information}
+
+%If you need to have appendices in your thesis,
+%you can write them as usual chapters after the \verb|\appendix| command.
+%Appendices are numbered alphabetically.
+
+\end{document}
