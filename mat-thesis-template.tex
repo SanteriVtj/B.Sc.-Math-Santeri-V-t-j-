@@ -59,7 +59,7 @@ Bachelor's thesis\\[8pt]
 % Kandidaatintutkielma / Maisterintutkielma\\[8pt]
 % Kandidatavhandlingen / Magisteravhandlingen\\[8pt]
 
-{\huge\bfseries Title of the thesis}\\[8pt]
+{\huge\bfseries Harmonic Extension at the Boundary of Half-Space}\\[8pt]
 
 Santeri Väätäjä
 \end{center}
@@ -79,7 +79,7 @@ Petri Ola\\
 \pagenumbering{gobble}
 \cleardoublepage
 
-\noindent\textbf{Title:} Repeat the title here\\ % Otsikko / Titel
+\noindent\textbf{Title:} Harmonic Extension at the Boundary of Half-Space\\ % Otsikko / Titel
 \textbf{Author:} Santeri Väätäjä\\ % Tekijä / Författare
 \textbf{Month and year:} Month and year of submission\\ % Aika / Datum
 \textbf{Page count:} \pageref*{LastPage}~pp.\\[1em] % Sivumäärä: XX~s. / Sidoantal: XX~s.
@@ -89,29 +89,39 @@ Petri Ola\\
 % If you include an abstract in a different language, wrap it in a foreignlanguage block
 \begin{foreignlanguage}{english}
 \noindent\textbf{Abstract:}\\ % Tiivistelmä / Referat
-The abstract should be about one page long.
-It also doubles as the maturity test.
-Do not use mathematical notation in the abstract,
-since it will also be displayed on the electronic thesis repository.
+In this thesis, I will introduce results for the Dirichlet problem in the half-space. The goal is to extend a boundary value function to the whole of the half-space, so that it solves the Laplace equation, and thus is harmonic.
 
-For the publication date, put in the month and year of submission of the finished thesis.
-Also include 3~to 5~keywords that support searching for your thesis.
-They are also shown one the repository page.
+In order to show these results, I will first introduce some tools that are needed in the analysis of this problem, and are also useful in broader analysis. The main analytical tool used in this study is the Fourier transform. The Fourier transform is then used to derive the Poisson kernel, which provides an explicit harmonic expression for the extension of the boundary data in the form of a Poisson integral.
 
-You can include the abstract in more than one language by copying and modifying
-this code between comment blocks.
-To get correct hyphenation for the language (and not with the rules of the main language),
-put the text in a \verb|foreignlanguage| block as shown in the code
-(just modify the language parameter to match the abstract).
+The thesis presents two main results. The first of these proves that the Poisson integral can be used as an extension for a boundary function when it belongs to the $L^p$ space. Also, an extension of this result with stricter regularity assumptions on the function, which leads to a stronger notion of convergence, is presented. The second main result shows that a similar result also holds for finite Borel measures. This allows an even wider variety of data to be represented at the boundary.
+
+These results provide an explicit solution to a boundary value problem for Laplace's equation, but also show how harmonic extensions behave under different regularity assumptions. These results have applications in a wide range of mathematical analysis, especially in partial differential equations, and in physics in the form of potential theory. In the end, I will highlight some of the possible ways these results could be extended to cover some generalized or slightly different settings.
 \end{foreignlanguage}
 
 
 \vfill
 
-\noindent\textbf{Keywords:} Fill in some keywords, Separated by commas % Avainsanat / Nyckelord
+\noindent\textbf{Keywords:} Harmonic analysis, Partial differential equations, Fourier analysis % Avainsanat / Nyckelord
 
+\clearpage
+\noindent\textbf{Otsikko:} Harmoninen laajennus puoliavaruuteen\\ % Otsikko / Titel
+\textbf{Kirjoittaja:} Santeri Väätäjä\\ % Tekijä / Författare
+\textbf{Vuosi ja kuukausi:} Month and year of submission\\ % Aika / Datum
+\textbf{Sivumäärä:} \pageref*{LastPage}~s.\\[1em] % Sivumäärä: XX~s. / Sidoantal: XX~s.
+% The page count is updated automatically, but it might require two compilations to be correct.
+% If you customize the backmatter, this might become incorrect - check and correct manually if needed.
 
+% If you include an abstract in a different language, wrap it in a foreignlanguage block
+\noindent\textbf{Tiivistelmä:}\\ % Tiivistelmä / Referat
+Tutkielma käsittelee Dirichlet ongelmaa, jossa tavoitteena on laajentaa reuna-arvot määrittelevä funktio $n$-uloitteisesta avaruudesta $n+1$-ulotteiseen puoliavaruuteen siten, että laajennus on harmoninen ja siten ratkaisee Laplacen yhtälön. Tätä kohti tutkielmassa edetään esittelmällä Fourier muunnos ja käyttämällä sitä avuksi Poisson ytimen johtamisessa. Poisson ydintä käytetään Poisson integraalin määrittämiseen, joka muodostaa eksplisiittisen muodon Dirichlet ongelman ratkaisulle, kun ratkottava osittaisdifferentaaliyhtälö on Laplacen yhtälö.
 
+Tutkielmassa on kaksi päätulosta. Näistä ensimmäinen todistaa, että Poisson integraali toteuttaa reuna-arvo ongelman kun reuna-arvot määräytyvät funktiosta, joka kuuluu $L^p$-avaruuteen. Tätä tulosta täydennetään lisätuloksella, jonka avulla voidaan näyttää, että ratkaisun suppeneminen noudattaa vahvempaa suppenemiskäsitettä silloin, kun reuna-arvot määrittävä funktio kuuluu tiukemmat säännöllisyysvaatimukset toteuttavaan funktioluokkaan. Toinen tutkielman päätuloksista laajentaa ensimmäistä tulosta vastaavan tuloksen koskemaan myös ääreellisiä Borel mittoja. Tämä mahdollista monipuolisemman reuna-arvo datan käyttämisen reuna-arvo ongelmassa.
+
+Nämä tulokset antavat eksplisiittisen muodon ratkaisulle, joka ratkaisee halutun Dirichlet ongelman. Tulokset valottaa myös sitä miten harmoniset laajennukset käyttäytyvät, kun reuna-arvot määrittävän funktion säännöllisyydelle oletetaan erilaisia ehtoja. Lisäksi tämän kaltaisilla tuloksilla on sovelluksia monissa erilaisissa matematiikan ja fysiikan sovelluksissa. Tuloksia voidaan käyttää esimerkiksi osittaisdifferentaaliyhtälöiden analyysissä ja potentiaaliteoriassa. Työn lopussa käyn läpi vielä joitakin mahdollisia yleistyksiä, joihin tuloksia on mahdollista laajentaa.
+
+\vfill
+
+\noindent\textbf{Avainsanat:} Harmoninen analyysi, Osittaisdifferentaaliyhtälöt, Fourier analyysi % Avainsanat / Nyckelord
 
 %
 % TABLE OF CONTENTS
@@ -128,18 +138,20 @@ put the text in a \verb|foreignlanguage| block as shown in the code
 % Do not repeat it for other chapters.
 \chapter{Introduction}
 \pagenumbering{arabic}
+\input{Sections/Introduction}
 
-\chapter{Poisson Kernel in $\RR_+^{n+1}$}
+\chapter{Poisson Formula for Harmonic Functions in $\RR_+^{n+1}$}\label{ch:2}
 \input{Sections/poisson-kernels}
 
 \clearpage
-\chapter{Harmonic functions in $E_+^{n+1}$}
+\chapter{Harmonic functions in $\RR_+^{n+1}$}\label{ch:3}
 
 \input{Sections/Harmonic-functions-in-E}
 
 \clearpage
-\chapter{Nontangential Convergence of Harmonic Functions}
+\chapter{Conclusion}
 
+\input{Sections/Conclusion}
 
 %
 % BIBLIOGRAPHY
