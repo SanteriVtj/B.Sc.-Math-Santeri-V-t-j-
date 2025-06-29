@@ -1,12 +1,12 @@
-In this chapter, I will go through the necessary preliminaries to understand the main result concerning the Dirichlet problem introduced in Chapter \ref{ch:3}. In order to understand that, one needs to be familiar with certain mathematical constructs. Most importantly, Fourier transforms and harmonic functions. These provide us with the tools that are used first to define the objective of having a function that solves the PDE, in this case Laplace's equation, within the half space in a way that it converges towards some desired functions at the boundary of the half space.
+This chapter introduces some necessary preliminaries to understand the main result concerning the Dirichlet problem introduced in Chapter \ref{ch:3}. In order to understand that, one needs to be familiar with certain mathematical constructs. Most importantly, Fourier transforms and harmonic functions. These provide us with the tools that are used to define the objective of having a function that solves the PDE, in this case Laplace's equation, within the half-space in a way that it converges towards some desired functions at the boundary of the half-space.
 
 For this purpose, I will go through the derivation of a Poisson kernel, which is a special type of function that has the property of solving Laplace's equation and acting as an approximate identity with respect to convolution.
 
 \section{Fourier Transform}
 
-The study of harmonic functions requires the use of the Fourier transforms in many situations. The Fourier transform has many desirable properties that can be used in the analysis. One of those is that, by the use of the Fourier transformation, it is possible to convert differential operators into algebraic expressions, and then recover the original function via the inverse transform. This greatly eases the analysis of many PDEs, where it can be easier to manipulate algebraic expressions than differential ones. More generally, it is sometimes easier to manipulate certain expressions in the Fourier space and then transform them back to the original form to obtain the result in the desired form.
+The study of harmonic functions requires the use of the Fourier transforms in many situations. The Fourier transform has many desirable properties that can be used in the analysis. One of those is that the use of the Fourier transformation converts differential operators into algebraic expressions, and then recovers the original function via the inverse transform. This greatly eases the analysis of many PDEs, where it can be easier to manipulate algebraic expressions than differential ones. More generally, it is sometimes easier to manipulate certain expressions in the Fourier space and then transform them back to the original form to obtain the result in the desired form.
 
-The results that prove these properties, among many others, are fundamental in the area of Fourier analysis. However, in this chapter, I will be concentrating especially on using the Fourier transform to transform specific functions that turn out to have very special properties concerning the class of harmonic functions. The class of harmonic functions\textemdash those functions that solve the Laplace equation $\Delta u=0$\textemdash  in the half-space $\RR_+^{n+1}=\{(x_1,x_2,\ldots,x_n,y)|x_i\in\RR\text{ for all }i\in\{1,2,\ldots,n\}, y\in\RR_+\}$ can be represented explicitly using Poisson kernels. Obtaining such an object requires the Fourier transform of another particular function. This will then allow recovery of a function from its boundary values $f(x)=u(x,0)$. Using the Poisson kernel, we can generate a solution by convolving it with the function $f$. This will yield a harmonic extension into the half-space.
+The results that prove these properties, among many others, are fundamental in the area of Fourier analysis. However, in this chapter, I will be concentrating especially on using the Fourier transform to transform specific functions that turn out to have very special properties concerning the class of harmonic functions. The class of harmonic functions\textemdash those functions that solve the Laplace equation $\Delta u=0$\textemdash in the half-space $\RR_+^{n+1}=\{(x_1,x_2,\ldots,x_n,y)|x_i\in\RR\text{ for all }i\in\{1,2,\ldots,n\}, y\in\RR_+\}$ can be represented explicitly using Poisson kernels. Obtaining such an object requires the Fourier transform of another particular function. This will then allow the recovery of a function from its boundary values $f(x)=u(x,0)$. By using the Poisson kernel, we can generate a solution for the boundary value problem by convolving it with the function $f$. This will yield the harmonic extension into the half-space.
 
 Let's start by defining the Fourier transform in the $L^1$-space.
 
@@ -81,9 +81,9 @@ Now we can use the Fourier transform to establish further results that are neede
     \end{align*}
     Therefore, we can denote the integral as $I_j(\xi_j)=e^{-\frac{\pi \xi_j^2}{\alpha}}\int_{-\infty}^\infty e^{-\pi\alpha\left(y_j+\frac{i\xi_j}{\alpha}\right)^2}dy_j$. Now it is possible to do a change of variable so that $u_j=y_j+\frac{i\xi_j}{\alpha}$, so the integral can be written as:
     \begin{gather*}
-        I_j(\xi_j)=e^{-\frac{\pi \xi_j^2}{\alpha}}\int_{-\infty}^\infty e^{-\pi\alpha u^2}dy_j
+        I_j(\xi_j)=e^{-\frac{\pi \xi_j^2}{\alpha}}\int_{-\infty}^\infty e^{-\pi\alpha u^2}du_j
     \end{gather*}
-    Now, the famous result on Gaussian integrals gives that $\int_{-\infty}^\infty e^{-x^2}dx=\sqrt{\pi}$. Applying this to $I_j(\xi_j)$ with a substitution $v^2=\alpha u^2$ and $dv=\sqrt{\alpha}du$:
+    The famous result on Gaussian integrals gives that $\int_{-\infty}^\infty e^{-x^2}dx=\sqrt{\pi}$. Applying this to $I_j(\xi_j)$ with a substitution $v^2=\alpha u^2$ and $dv=\sqrt{\alpha}du$:
     \begin{align*}
         \int_{-\infty}^\infty e^{-\pi\alpha u^2}du&=\frac{1}{\sqrt{\alpha}}\int_{-\infty}^\infty e^{-\pi v^2}dv \\
         &=\frac{1}{\sqrt{\alpha}}
@@ -104,7 +104,7 @@ Now we can use the Fourier transform to establish further results that are neede
     Which concludes the proof, as it is the claimed Fourier transformation of a Gaussian function.
 \end{proof}
 
-This result can now be used to derive the Poisson kernel, as a Fourier transform of a $e^{-\epsilon|x|}$.
+This result can now be used to derive the Poisson kernel, as a Fourier transform of the following function $e^{-\epsilon|x|}$.
 
 \begin{theorem}[Poisson Kernel]\label{thm:poisson-kernel}
     For all $\alpha>0$ 
@@ -126,7 +126,7 @@ This result can now be used to derive the Poisson kernel, as a Fourier transform
     \begin{equation*}
         e^{-\beta}=\frac{2}{\pi}\int_0^\infty\frac{\cos{\beta x}}{1+x^2}
     \end{equation*}
-    The idea is to use the residue theorem on a function $f(z)=\frac{e^{i\beta z}}{1+z^2}$. As $\frac{e^{i\beta z}}{1+z^2}=\frac{e^{i\beta z}}{(z+i)(z-i)}$, the function has two poles at $z=\pm i$. Now let $\beta>0$ and $\Gamma_R$ be the contour consisting of the real line from $[-R,R]$ and the upper semicircle $C_R$ of radius $R$ centered at $0$. The contour integral can then be represented as sum of these parts.
+    The idea is to use the residue theorem on a function $f(z)=\frac{e^{i\beta z}}{1+z^2}$. The residue theorem is a crucial result in complex analysis, providing a valuable tool for evaluating integrals of analytic functions. The statement and proof for the theorem can be found in multiple textbooks of complex analysis \cite{Ahlfors1966, Nevalinna, Conway}. As $\frac{e^{i\beta z}}{1+z^2}=\frac{e^{i\beta z}}{(z+i)(z-i)}$, the function has two poles at $z=\pm i$. Now let $\beta>0$ and $\Gamma_R$ be the contour consisting of the real line from $[-R,R]$ and the upper semicircle $C_R$ of radius $R$ centered at $0$. The contour integral can then be represented as a sum of these parts.
     \begin{equation*}
         I_R=\oint_{\Gamma_R}f(z)dz=\int_{-R}^Rf(z)dz+\int_{C_R}f(z)dz
     \end{equation*}
@@ -180,7 +180,7 @@ This result can now be used to derive the Poisson kernel, as a Fourier transform
     This gives the formulation of the Poisson kernel in the half-space $\RR_+^{n+1}$.
 \end{proof}
 
-The Fourier transform of the function $e^{-2\pi\alpha|y|}$ constitutes the Poisson kernel, and it will be denoted by $P(x,y)=c_ny(y^2+|x|^2)^{-\frac{n+1}{2}}$. Also, the first transformation has a name: Weierstrass kernel, which is usually denoted by $W(x,y)$, analogous to the Poisson kernel. However, the Poisson kernel is in focus for the remainder of the thesis. Key properties it has are the harmonicity and smoothness. In addition, the Poisson is a ``good kernel'' \cite{SteinShack1}. Good kernels have some good properties with respect to the convolution operation. Namely, those can be interpreted as approximate identities with respect to convolution.
+The Fourier transform of the function $e^{-2\pi\alpha|y|}$ constitutes the Poisson kernel, and it will be denoted by $P(x,y)=c_ny(y^2+|x|^2)^{-\frac{n+1}{2}}$. Also, the first transformation has a name: Weierstrass kernel, which is usually denoted by $W(x,y)$, analogous to the Poisson kernel. However, the Poisson kernel is in the focus for the remainder of the thesis. Key properties it has are the harmonicity and smoothness. In addition, the Poisson is a ``good kernel'' \cite{SteinShack1}. Good kernels have some good properties with respect to the convolution operation. Namely, those can be interpreted as approximate identities with respect to convolution.
 
 \begin{definition}[Convolution]
     Let $f$ and $g$ be functions, then $f*g$ is defined as the following integral transform:
@@ -205,8 +205,7 @@ In order for a kernel to qualify as a good kernel, it must satisfy the following
         \end{equation*}
     \end{enumerate}
 \end{definition}
-
-Good kernels are an important concept for the following analysis, as they act as an approximate identity with respect to a convolution. When a function in $L^p$ space is convolved with a good kernel, this resembles averaging the function in the area close to a point. As the kernel integrates into one and its tails diminish the further from the origin $x$ gets. The next lemma will show that the Poisson kernel belongs to this class of kernels.
+Good kernels are an important concept for the following analysis, as they act as an approximate identity with respect to a convolution. This means that the kernel behaves as an identity at the limit when $y\rightarrow0$ and thus $\|f*K_y-f\|\xrightarrow{y\rightarrow0}0$. When a function in $L^p$ space is convolved with a good kernel, this resembles averaging the function in the area close to a point. As the kernel integrates into one and its tails diminish the further from the origin $x$ gets. When the area over which it is averaged converges towards the point at which the function is evaluated in the sense of condition 3. of Definition \ref{def:goodkernel}, the value of the convolution gets closer to the value at that point. The next lemma will show that the Poisson kernel belongs to this class of kernels.
 
 \begin{lemma}[Poisson Kernel is a Good Kernel]
     Poisson kernels are a family of good kernels.
@@ -255,33 +254,18 @@ Good kernels are an important concept for the following analysis, as they act as
 
 As the Poisson kernel satisfies all of the criteria for good kernels, it can also be interpreted as a kind of an average close to a point. Moreover, it turns out that as the $y$ goes to zero, the convolution of a function in $L^p$ will converge towards the function against which it is convolved.
 
-\begin{comment}
-\begin{lemma}
-    If $f\in L^p(\RR^n)$, then $P(\cdot,y)*f$ converges to $f$ in $L^p(\RR^n)$.
-\end{lemma}
-\begin{proof}
-    As $C^\infty_0(\mathbb R^n)$ is dense with respect to $L^p(\mathbb R^n)$, exists a function $f_\epsilon\in C^\infty_0(\mathbb R^n)$ such that for any $\epsilon>0$ holds $\|f-f_\epsilon\|_{L^p(\mathbb R^n)}<\epsilon$.
-    For $y>0$
-    \begin{align*}
-        (f*P(\cdot,y))(x)-f(x)&=\int_{\RR^n}f(x-t)P(t,y)dt-\int_{\RR^n}f(x)P(t,y)dt \\
-        &=\int_{\RR^n}(f(x-t)-f(x))P(t,y)dt
-    \end{align*}
-    So the norm of this can be estimated, and by Minkowski's integral inequality:
-    \begin{align*}
-        \|f*P-f\|&=\left(\int_{\RR^n}\left|\int_{\RR^n}(f(x-t)-f(x))P(t,y)dt\right|^pdx\right)^{\frac{1}{p}} \\
-        &\leq\int_{\RR^n}\left(\int_{\RR^n}|(f(x-t)-f(x))|^pdx\right)^{\frac{1}{p}}P(t,y)dt
-    \end{align*}
-\end{proof}
-\end{comment}
-
 \section{Laplace Equation and Harmonicity}
 
+The main result of this thesis deals with extending a function from Euclidean space $\RR^n$ to the half space $\RR^n\times\RR_+$, and more precisely, the results consider harmonic extensions. Defining harmonic functions requires the definition of Laplace's equation, which is one of the most important partial differential equation since it appears in a wide variety of problems in mathematics and physics \cite{evans}.
+
 \begin{definition}[Laplace's equation]
-    Laplace's equation is a second-order PDE
+    Laplace's equation is a second-order PDE defined by Laplace's operator $\Delta$ as:
     \begin{equation*}
         \Delta u=\nabla\cdot\nabla u=\sum_{n=1}^n\frac{\partial^2u}{\partial x_i^2}=0.
     \end{equation*}
 \end{definition}
+
+The set of functions that solve Laplace's equation has many special characteristics and are thus also named.
 
 \begin{definition}[Harmonic Functions]
     Functions that solve Laplace's equation are called harmonic.

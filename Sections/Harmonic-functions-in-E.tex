@@ -1,12 +1,12 @@
-This chapter will consider the main result of the Dirichlet problem in the half space for Laplace's equation. I will consider here only the tangential convergence, where the limit is taken tangentially towards the boundary value. All of this chapter follows closely the results by Stein and Weiss from \cite{stein_weiss}.
+This chapter will consider the main result of the Dirichlet problem in the half-space for Laplace's equation. I will only consider here the tangential convergence, where the limit is taken tangentially towards the boundary value. All of this chapter follows closely the results by Stein and Weiss from \cite{stein_weiss}.
 
-I will start the chapter by first introducing some new, necessary constructs that are used in the main result: Theorem \ref{thm:2.3}. This result, together with Theorem \ref{thm:21a}, provides a way to lift the problem from the boundary $\RR^n$ to the half space $\RR^{n+1}_+$, where the extension is harmonic; consequently, the results from harmonic functional analysis apply to the problem. First, Theorem \ref{thm:21a} will show that $L^p$ functions behave as desired, and the Poisson integral converges towards the function at the boundary $\RR^n\times\{0\}$. Then Theorem \ref{thm:2.3} will extend this result to apply to the broader class of finite Borel measures.
+I will start the chapter by first introducing some new, necessary constructs that are used in the main result: Theorem \ref{thm:2.3}. This result, together with Theorem \ref{thm:21a}, provides a way to lift the problem from the boundary $\RR^n$ to the half space $\RR^{n+1}_+$, where the extension is harmonic; consequently, the results from harmonic functional analysis apply to the problem. First, Theorem \ref{thm:21a} will show that $L^p$ functions behave as desired, and the Poisson integral converges towards the function at the boundary $\RR^n\times\{0\}$. Then Theorem \ref{thm:2.3} will extend this result to apply to a broader class of finite Borel measures.
 
-These results need some additional concepts to be understood. I will start by defining the total variational measure and the norm that is defined by it\textemdash the total variation norm. Then, at a later stage, to prove Theorem \ref{thm:2.3}, a weaker notion of convergence is needed, and for this purpose, the weak$^*$ convergence is introduced.
+These results need some additional concepts to be understood. Therefore, in the second Section definition of the total variational measure and the norm induced by that are defined. Also, to prove Theorem \ref{thm:2.3}, a weaker notion of convergence is needed, and for this purpose, the weak$^*$ convergence is introduced.
 
 \section{The Characterization of Poisson Integral for $L^p$-space}\label{sec:LP}
 
-In this section, I will concentrate on the version of Dirichlet's problem where the data, meaning the function towards which the harmonic function converges at the boundary of a half space, belongs to the $L^p$ space. Main results of this section, Theorems \ref{thm:21a} and \ref{thm:21b} will be concerned with recovering the boundary value function by extending it to the half space through the Poisson integral. These also establish a regularity for the Poisson integral and show that it also belongs to the $L^p$ space.
+In this section, I will concentrate on the version of Dirichlet's problem where the data\textemdash meaning the function towards which the harmonic function converges at the boundary of a half space\textemdash belongs to the $L^p$ space. Main results of this section, Theorems \ref{thm:21a} and \ref{thm:21b} will be concerned with recovering the boundary value function by extending it to the half space through the Poisson integral. These also establish a regularity for the Poisson integral and show that it also belongs to the $L^p$ space.
 
 Proofs for these theorems require some preliminary results. These are introduced before the main results. These results show that the convolutions of $L^p$ functions with functions that resemble good kernels as approximate identities will converge, in some cases pointwise and in other cases in the $L^p$ sense, to the function against which it is convoluted.
 
@@ -158,7 +158,26 @@ Finally, all the required results are established, and it is possible to prove t
     as $y\rightarrow0$. That is, $u(\cdot,y)$ converges to $f$ in the $L^p$ norm as $y\rightarrow0$.
 \end{theorem}
 \begin{proof}
-    First, the claim about the limit of the Poisson integral $\lim_{y_\rightarrow0}u(x,y)=f(x)$ for almost every $x$, follows from the Lemma \ref{lemma:125}.
+    The Poisson integral can be shown to be harmonic by showing that $\Delta_{x,y} u(x,y)=0$. Since the Poisson kernel is harmonic, this could be shown by taking the Laplace operator inside the integral. Let $y>0$, then from the equation \ref{eq:d2dx2P} the absolute value of the second derivative with respect to $x_i$ can be bounded as:
+    \begin{align*}
+        \left|\frac{\partial^2P(x,y)}{\partial x_i^2}\right| &=\left|c_n(n+1)y\left( \frac{(n+3)x_i^2}{(y^2+|x|^2)^\frac{n+5}{2}}-\frac{1}{(y^2+|x|^2)^\frac{n+3}{2}}\right)\right| \\
+        &= \left|c_n(n+1)y\left( \frac{(n+3)x_i^2}{(y^2+|x|^2)^\frac{n+5}{2}}-\frac{y^2+|x|^2}{(y^2+|x|^2)^\frac{n+5}{2}}\right)\right| \\
+        &\leq c_n(n+1)y\frac{(n+2)(y^2+|x|^2)}{(y^2+|x|^2)^\frac{n+5}{2}} \\
+        &=\frac{C_n^x}{(y^2+|x|^2)^\frac{n+3}{2}}.
+    \end{align*}
+    The second derivative of $P$ with respect to $y$ from the equation \ref{eq:d2dyP} can be bounded similarly.
+    \begin{equation*}
+        \left|\frac{\partial^2P(x,y)}{\partial y^2}\right|\leq \frac{C_n^y}{(y^2+|x|^2)^\frac{n+3}{2}}
+    \end{equation*}
+    Therefore, the dominated convergence applies to the Poisson integral and allows for the change of order in integration and differentiation. By using this and the Poisson kernels' harmonicity, the integral is shown to be harmonic.
+    \begin{align*}
+        \Delta_{x,y} u(x,y)&=\Delta_{x,y}\int_{\RR^n} P(x-t,y)f(t)dt \\
+        &=\int_{\RR^n} \Delta_{x,y}P(x-t,y)f(t)dt \\
+        &=\int_{\RR^n} 0\cdot f(t)dt \\
+        &=0
+    \end{align*}
+    
+    The limit of the Poisson integral $\lim_{y_\rightarrow0}u(x,y)=f(x)$ for almost every $x$, follows from the Lemma \ref{lemma:125}.
 
     Similarly, $L^p$ convergence $\|u(\cdot,y)-f\|_p$ follows from the Lemma \ref{lemma:118}.
 
@@ -167,13 +186,16 @@ Finally, all the required results are established, and it is possible to prove t
     These prove the lemma.
 \end{proof}
 
-\begin{figure}[h]\label{fig:convergence}
+Figure \ref{fig:convergence} shows Theorem \ref{thm:21a} in action. In the example, the domain is not exactly the half space, but a subspace of it, as the integration is done only in the $[0,2\pi]$ interval and therefore the Poisson integral is only showing a subset of $[0,2\pi]\times\RR_+$.
+
+\begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{Figures/convergence.png}
-\caption{Convergence of Poisson integral $u(x,y)=\int_0^{2\pi}P(x-t,y)\sin(t)dt$ to $f(x)=\sin(x)$ in 2-dimensional half-space $\RR\times\RR_+$. As $\sin$ belongs to $L^2([0,2\pi])$, Theorem \ref{thm:21a} applies to it, which the figure confirms in this particular case.}
+\caption{Convergence of Poisson integral $u(x,y)=\int_0^{2\pi}P(x-t,y)\sin(t)dt$ to $f(x)=\sin(x)$, which is shown as the red line, in 2-dimensional subspace $[0,2\pi]\times\RR_+$.}
+\label{fig:convergence}
 \end{figure}
 
-The next result will strengthen the result of Theorem \ref{thm:21a} in cases where stricter regularity assumptions can be made for the boundary value function $f$. It shows that in specific cases where it is assumed to be continuous and bounded, the convergence of the Poisson integral accepts a stronger convergence result, as it is shown to converge uniformly in this case.
+The next result will strengthen the result of Theorem \ref{thm:21a} when stricter regularity assumptions are applicable for the boundary value function $f$. It shows that in specific cases where it is assumed to be continuous and bounded, the convergence of the Poisson integral accepts a stronger convergence result, as it is shown to converge uniformly in this case.
 
 \begin{theorem}\label{thm:21b}
     If $f\in C_0\subset L^p(\RR^n)$ then the Poisson integral of $f$, $u(x,y)$, converges to f uniformly: $\|u(\cdot,y)-f\|_\infty=\sup_{x\in\RR^n}|u(x,y)-f(x)|\rightarrow0$ as $y\rightarrow0$. 
@@ -202,11 +224,11 @@ These results could be used, for example, as a tool to solve certain problems in
 \end{equation*}
 These results show that the Poisson integral will give the solution that is sought.
 
-However, the result is applicable to a wider range of problems than this. The natural next step from here could be to consider the heat equation $u_t=\Delta u$, of which the steady state is the Laplace equation. To solve it for an initial data $u(x,0)=f(x)$, the techniques that were developed in the theorems of this section could also be used.
+However, the result is applicable to a wider range of problems than this. The natural next step from here could be to consider the heat equation $u_t=\Delta u$, which has the Laplace's equation as a steady state equilibrium. To solve it for an initial data $u(x,0)=f(x)$, the techniques that were developed in the theorems of this section could also be used.
 
-\section{The Characterization of Poisson Integrals for the Space of Finite Borel Measures $\mathcal M$}
+\section{The Characterization of Poisson-Stiltjes Integral for the Space of Finite Borel Measures $\mathcal M$}
 
-After considering $L^p$ functions in Section \ref{sec:LP} and proving the Poisson integral converges to a $L^p$ function at the boundary of a half space, it is possible to widen the scope and consider a similar problem in other spaces. In this section, $L^p$ functions are changed to measure, and especially finite Borel measures. The one with finite Borel measures is otherwise very similar to Theorem \ref{thm:21a}, but some definitions change due to the move from $L^p$ functions to finite Borel measures $\mathcal M$.
+After considering $L^p$ functions in Section \ref{sec:LP} and proving the Poisson integral converges to a $L^p$ function at the boundary of a half space, it is possible to widen the scope and consider a similar problem in other spaces. In this section, $L^p$ functions are replaced by measures, especially finite Borel measures. The convergence result with finite Borel measures is otherwise very similar to Theorem \ref{thm:21a}, but some definitions change due to the move from $L^p$ functions to finite Borel measures $\mathcal M$.
 
 First of all, the measure $\mu\in\mathcal M(\RR^{n})$ requires a new definition for the norm. For this purpose, we need the total variation. The total variation of a measure is a positive measure defined by another measure as follows. 
 
@@ -248,14 +270,13 @@ These are enough to acquire a similar result for finite Borel measures as for $L
     \noindent for all $\varphi\in C_0$; that is, $u(\cdot,y)$ converges to $\mu$ in the weak* topology.
 \end{theorem}
 \begin{proof}
-    Let's show that the Poisson-Stiltjes integral $u$ is harmonic in $\RR^{n+1}_+$. To get this result, the function $u$ has to satisfy the Laplacian $\Delta u=0$. To proceed with this, notice that the Poisson kernel is harmonic in $\RR^{n+1}_+$. Therefore, the Laplacian of $u$ is
+    The Poisson-Stiltjes integral can be shown to be harmonic in an analogous way to the Poisson integral. The analysis concerning Poisson kernels' second derivatives does not change, and therefore, the dominated convergence can also be used in this instance. Then the result is acquired by the same change of order in integration and differentiation.
     \begin{align*}
         \Delta_{x,y} u(x,y)&=\Delta_{x,y}\int_{\RR^n}P(x-t,y)d\mu(t) \\
         &=\int_{\RR^n}\Delta_{x,y}P(x-t,y)d\mu(t) \\
-        &=\int_{\RR^n}0d\mu(t) \\
-        &=0.
+        &=\int_{\RR^n}0\cdot d\mu(t) \\
+        &=0
     \end{align*}
-    The change of order in differentiation and integration in the above equality is not immediate, however, it follows from the fact that the Poisson kernel is a smooth function. Note that $(y^2+|x|^2)^{-\frac{n+1}{2}}>0$ for all $(x,y)\in\RR^n\times(0,\infty)$. Thus, the denominator doesn't go to zero. Additionally, the kernel $P(x,y)=c_ny(y^2+|x|^2)^{-\frac{n+1}{2}}$ is a composition of smooth functions $y^2$, $|x|^2$, $y^2+|x|^2$, and $u\mapsto u^{-\frac{n+1}{2}}$ for $u>0$. Therefore, taking a derivative of $P$ with respect to $x_i$ or $y$ leads to a derivative of the form $c_ny/g(x,y)$. Differentiating this expression gives, by quotient rule, new fractional since the derivative with respect to $y$ is $\frac{d}{dy}(c_ny/g(x,y))=c_n\frac{g(x,y)-yg_y(x,y)}{g(x,y)^2}$ and with respect to $x$ is $\frac{d}{dx}(c_ny/g(x,y))=-c_n\frac{yg_x(x,y)}{g(x,y)^2}$. These are of the same form as the original function, so by induction, the derivatives are also continuous, making the Poisson kernel $P$ smooth, so the limit of differentiation can be brought inside the integral.
 
     The inequality \ref{eq:main-ineq} now follows from the Lemma \ref{lemma:conv-lp} by changing the $L^1$ function $g$ to a Borel measure $\mu\in\mathcal M(\RR^n)$ and applying the total variation to the expression $h(x)=\int_{\RR^n}f(x-t)d\mu(t)$. Minkowski's integral inequality can be applied to the norm to obtain that $\int_{\RR^n}|u(x,y)|dx\leq\int_{\RR^n}\|u(\cdot,y)\|_1d\mu(t)$. Since $\int_{\RR^n}P(x,y)dx=1$, this leads to the inequality \ref{eq:main-ineq}.
 
